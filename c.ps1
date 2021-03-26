@@ -27,6 +27,7 @@ $errormessagecolor = "red"
 ## set-executionpolicy -executionpolicy bypass -scope currentuser -force
 
 if ($debug) {
+    write-host "Script activity logged at ..\c.txt"
     start-transcript "..\c.txt" | Out-Null                                        ## Log file created in parent directory that is overwritten on each run
 }
 
@@ -43,12 +44,12 @@ $scripts += [PSCustomObject]@{
     Module = "MicrosoftTeams"    
 }
 $scripts += [PSCustomObject]@{
-    Name = "o365-connect-mfa-spo.ps1";
+    Name = "o365-connect-spo.ps1";
     Service = "SharePoint"; 
     Module = "Microsoft.Online.SharePoint.PowerShell"   
 }
 $scripts += [PSCustomObject]@{
-    Name = "o365-connect-mfa-sac.ps1";
+    Name = "o365-connect-sac.ps1";
     Service = "Security and Compliance";
     Module = "MSOnline"    
 }
@@ -58,7 +59,7 @@ $scripts += [PSCustomObject]@{
     Module = "skypeonlineconnector"
 }
 $scripts += [PSCustomObject]@{
-    Name = "o365-connect-exov2.ps1";
+    Name = "o365-connect-exo.ps1";
     Service = "Exchange Online";
     Module ="ExchangeOnlineManagement"    
 }
@@ -68,17 +69,17 @@ $scripts += [PSCustomObject]@{
     Module = "";    
 }
 $scripts += [PSCustomObject]@{
-    Name = "o365-connect-mfa-aadrm.ps1";
-    Service = "Azure AD Rights Management";
-    Module = "AADRM"    
+    Name = "o365-connect-aip.ps1";
+    Service = "Azure Information Protection";
+    Module = "Aipservice"    
 }
 $scripts += [PSCustomObject]@{
-    Name = "o365-connect-mfa-aad.ps1";
+    Name = "o365-connect-aad.ps1";
     Service = "Azure AD";
     Module = "AzureAD"    
 }
 $scripts += [PSCustomObject]@{
-    Name = "o365-connect-mfa.ps1";
+    Name = "o365-connect.ps1";
     Service = "MS Online";  
     Module = "MSOnline"  
 }
